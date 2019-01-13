@@ -4,5 +4,5 @@ componentDidMount() {
     ${1}
 }
 ]]></content>
-<tabTrigger>rcdm</tabTrigger>
+<tabTrigger>cdm</tabTrigger>
 </snippet>

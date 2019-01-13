@@ -2,5 +2,5 @@
     <content><![CDATA[
 import ${1:Package} from '${2:path}';
 ]]></content>
-<tabTrigger>rim</tabTrigger>
+<tabTrigger>im</tabTrigger>
 </snippet>
