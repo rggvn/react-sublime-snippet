@@ -1,8 +1,9 @@
 <snippet>
     <content><![CDATA[
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
-class ${1:Component} extends Component {
+class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends Component {
     static propTypes = {
         className: PropTypes.string,
     };
@@ -13,12 +14,14 @@ class ${1:Component} extends Component {
 
     render() {
         return (
-            ${2}
+            <div>
+                ${2}
+            </div>
         );
     }
 }
 
-export default ${1:Component};
+export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
 <tabTrigger>rcc</tabTrigger>

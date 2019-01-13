@@ -1,20 +1,21 @@
 <snippet>
     <content><![CDATA[
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 
-const ${1:Component} = ({ className }) => {
+const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = ({ props }) => {
     return (
-        ${2}
+        <div>
+            ${2}
+        </div>
     );
 };
 
-${1:Component}.displayName = '${1:Component}';
-
-${1:Component}.propTypes = {
+${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
     className: PropTypes.string,
 };
 
-export default ${1:Component};
+export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
 <tabTrigger>rfc</tabTrigger>
