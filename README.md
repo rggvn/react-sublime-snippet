@@ -1,8 +1,16 @@
+This is a fork off the original by: [jeantimex](https://github.com/jeantimex/react-sublime-snippet)
+
+
 # React Development Snippets
 
 Feeling bored with typing or even copying React codes to write React components and test cases? If you use Sublime, hope these code snippets can help you enjoy writing your React components.
 
 The snippets follow JavaScript ES6 syntax, we don't use the old `React.createClass({...})` anymore, we write class component and functional component. Also we provide snippets to quickly write React Lifecycle functions (e.g. `componentDidMount`).
+
+## changes:
+* moved the `PropTypes` from the React import to it's own import from `prop-types`
+* Added component naming based on filename
+* changed tab completion from the import snippet to `im` because it's also usefull outside of react projects
 
 ## Installation ##
 
@@ -10,22 +18,11 @@ The snippets follow JavaScript ES6 syntax, we don't use the old `React.createCla
 
  * Make sure you have [Package Manager](https://packagecontrol.io/installation) installed
  * Launch the command palette: `⌘+shift+p` on MacOS, `ctrl+shift+p` on Windows
+ * type `add repository` and add the link of this repo
  * Type `install`, select `Package Control: Install Package`
- * Type `React`, select `React Development Snippets`
+ * Type `React`, select `react-sublime-snippet`
 
-### Without Package Control ###
 
-Navigate to your Sublime Text packages folder and git clone our project.
-
-#### MacOS ####
-"/Users/{user}/Library/Application Support/Sublime Text {2|3}/Packages"
-
-#### Windows ####
-"C:\Users\{user}\AppData\Roaming\Sublime Text {2|3}\Packages"
-
-```
-git clone https://github.com/jeantimex/react-sublime-snippet.git "React-Development-Snippets"
-```
 
 ## Snippets ##
 
@@ -34,7 +31,8 @@ git clone https://github.com/jeantimex/react-sublime-snippet.git "React-Developm
 **ES6 Class Component** `rcc + <TAB>`<br />
 ![rcc](screenshots/rcc.gif)<br />
 ```javascript
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+Import PropTypes from 'prop-types';
 
 class ${1:Component} extends Component {
     static propTypes = {
@@ -55,36 +53,11 @@ class ${1:Component} extends Component {
 export default ${1:Component};
 ```
 
-**ES6 Class Component with injectIntl** `rcci + <TAB>`
-```javascript
-import React, { Component, PropTypes } from 'react';
-import { injectIntl, intlShape } from 'react-intl';
-
-class ${1:Component} extends Component {
-    static propTypes = {
-        intl: intlShape.isRequired,
-    };
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const { formatMessage } = this.props.intl;
-
-        return (
-            ${0}
-        );
-    }
-}
-
-export default injectIntl(${1:Component});
-```
-
 **Functional Component** `rfc + <TAB>`<br />
 ![rfc](screenshots/rfc.gif)<br />
 ```javascript
-import React, { PropTypes } from 'react';
+import React from 'react';
+Import PropTypes from 'prop-types';
 
 const ${1:Component} = ({
     className = '',
@@ -103,32 +76,6 @@ ${1:Component}.propTypes = {
 };
 
 export default ${1:Component};
-```
-
-**Functional Component with injectIntl** `rfci + <TAB>`
-```javascript
-import React, { PropTypes } from 'react';
-import { injectIntl, intlShape } from 'react-intl';
-
-const ${1:Component} = ({
-    intl,
-}) => {
-    const { formatMessage } = intl;
-
-    return (
-        ${0}
-    );
-};
-
-${1:Component}.displayName = '${1:Component}';
-
-${1:Component}.propTypes = {
-    intl: intlShape.isRequired,
-};
-
-export { ${1:Component} };
-
-export default injectIntl(${1:Component});
 ```
 
 **static propTypes** `rspt + <TAB>`
@@ -165,7 +112,7 @@ ${1:message}: {
 },
 ```
 
-**componentDidMount()** `rcdm + <TAB>`
+**componentDidMount()** `cdm + <TAB>`
 ```javascript
 componentDidMount() {
     ${1}
@@ -340,7 +287,7 @@ it('should ${1:...}', () => {
 });
 ```
 
-**import** `rim + <TAB>`
+**import** `im + <TAB>`
 ```javascript
 import ${1:Package} from '${2:path}';
 ```
